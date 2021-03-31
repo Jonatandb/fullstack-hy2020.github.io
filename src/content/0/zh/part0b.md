@@ -30,9 +30,10 @@ lang: zh
 在浏览器上打开这个[示例应用](https://studies.cs.helsinki.fi/exampleapp)。应用加载通常需要等一会儿。
 
 <!-- **The 1st rule of web development**: Always keep the Developer Console open on your browser. On macOS, open the console by pressing `F12` or `option-cmd-i` simultaneously. -->
-<!-- On Windows, open the console by pressing `F12` or `ctrl-shift-i` simultaneously. -->
+<!-- On Windows or Linux, open the console by pressing `F12` or `ctrl-shift-i` simultaneously. -->
 
-Web 开发第一规则: 始终在浏览器上打开你的开发者控制台。 在 macOS 上，按 `F12` 或者 `option-cmd-i` 打开控制台。 在 Windows 上，按 `F12` 或 `ctrl-shift-i`打开控制台。
+Web 开发第一规则: 始终在浏览器上打开你的开发者控制台。 在 macOS 上，按 `F12` 或者 `option-cmd-i` 打开控制台。 
+Windows 系统或Linux 系统，可以按 `F12` 或 `ctrl-shift-i`打开控制台。
 
 <!-- Before continuing, find out how to open the Developer Console on your computer (google if necessary) and remember to <i>always</i> keep it open when developing web applications. -->
 
@@ -79,7 +80,7 @@ Web 开发第一规则: 始终在浏览器上打开你的开发者控制台。 �
 
 <!-- The upper part, <i>General</i>, shows that the browser did a request to the address <i>https://studies.cs.helsinki.fi/exampleapp/</i> (though the address has changed slightly since this picture was taken) using the [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) method, and that the request was successful, because the server response had the [Status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) 200. -->
 
-上半部分，General 中的内容，说明了浏览器使用 [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) 方法向地址 https://studies.cs.helsinki.fi/exampleapp/ 发送了一个请求（虽然由于图片已经取到了，地址悄悄发生了变化），并且请求成功，因为服务器响应的状态码为 200。
+上半部分，General 中的内容，说明了浏览器使用 [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) 方法向地址 https://studies.cs.helsinki.fi/exampleapp/ 发送了一个请求（虽然在截图的时候还不是这个地址），并且请求成功，因为服务器响应的状态码为 200。
 
 <!-- The request and the server response have several [headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields): -->
 
@@ -382,17 +383,14 @@ xhttp.send();
 
 发送到服务器的请求放在了最后一行，但是处理响应的代码却在上面定义了。这是怎么回事？
 
-<!-- On this line, -->
-
-这一行中，
 
 ```js
 xhttp.onreadystatechange = function () {
 ```
 
-<!-- an <i>event handler</i> for event <i>onreadystatechange</i> is defined for the <em>xhttp</em> object doing the request. When the state of the object changes, the browser calls the event handler function. The function code checks that the [readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState) equals 4 (which depicts the situation <i>The operation is complete</i>) and that the HTTP status code of the response is 200. -->
+<!-- On this line, an <i>event handler</i> for event <i>onreadystatechange</i> is defined for the <em>xhttp</em> object doing the request. When the state of the object changes, the browser calls the event handler function. The function code checks that the [readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState) equals 4 (which depicts the situation <i>The operation is complete</i>) and that the HTTP status code of the response is 200. -->
 
-onreadystatechange 这个事件处理程序是定义在 xhttp 对象上的，xhttp对象是用于执行请求的。当这个对象的状态发生改变时，浏览器调用了这个事件处理函数。 这个函数代码检查了 [readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState) 是否等于 4(它描述了操作已完成的状态) ，以及响应的 HTTP 状态码是否为 200。
+这一行中，onreadystatechange 这个事件处理程序是定义在 xhttp 对象上的，xhttp对象是用于执行请求的。当这个对象的状态发生改变时，浏览器调用了这个事件处理函数。 这个函数代码检查了 [readyState](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState) 是否等于 4(它描述了操作已完成的状态) ，以及响应的 HTTP 状态码是否为 200。
 
 ```js
 xhttp.onreadystatechange = function() {
@@ -442,7 +440,7 @@ html
 
 <!-- Document Object Model, or [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) is an Application Programming Interface, (an <i>API</i>), which enables programmatic modification of the <i>element trees</i> corresponding to web-pages. -->
 
-文档对象模型(Document Object Model，DOM)是一个应用编程接口(Application Programming Interface，API) ，它支持对 web 页面对应的元素树进行编程修改。
+文档对象模型(Document Object Model，[DOM](https://en.wikipedia.org/wiki/Document_Object_Model))是一个应用编程接口(Application Programming Interface，API) ，它支持对 web 页面对应的元素树进行编程修改。
 
 <!-- The JavaScript code introduced in the previous chapter used the DOM-API to add a list of notes to the page. -->
 
@@ -523,7 +521,7 @@ Notes 页面的 HTML 代码中 head 元素包含了一个 [link](https://develop
 
 <!-- Cascading Style Sheets, or CSS, is a markup language used to determine the appearance of web applications. -->
 
-层叠样式表, 或者叫 CSS，是一种用来确定 web 应用外观的标记语言。
+层叠样式表(Cascading Style Sheets, CSS)，是一种用来确定 web 应用外观的标记语言。
 
 <!-- The fetched CSS-file looks as follows: -->
 
@@ -570,7 +568,7 @@ CSS 规则定义了 container 类的元素，将用一个像素宽的边框 [bor
 
 第二个 CSS 规则将文本颜色设置为蓝色。
 
-<!-- HTML elements can also have other attributes than classes. The <i>div</i> element containing the notes has an [id](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) attribute. JavaScript code uses the id to find the element. -->
+<!-- HTML elements can also have other attributes apart from classes. The <i>div</i> element containing the notes has an [id](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) attribute. JavaScript code uses the id to find the element. -->
 
 Html 元素也可以有 class 以外的其他属性。 包含 Note 的 div 元素有一个 id 属性。 JavaScript 代码使用 id 来查找元素。
 
@@ -584,11 +582,11 @@ Html 元素也可以有 class 以外的其他属性。 包含 Note 的 div 元�
 
 在控制台上所做的更改也不是永久性的。 如果要进行持久的更改，必须将更改保存到服务器上的 CSS 样式表中。
 
-### Loading a page containing JavaScript - revised 
+### Loading a page containing JavaScript - review 
 
 【加载一个包含 JavaScript 的页面-复习】
 
-<!-- Let's revise what happens when the page https://studies.cs.helsinki.fi/exampleapp/notes is opened on the browser. -->
+<!-- Let's review what happens when the page https://studies.cs.helsinki.fi/exampleapp/notes is opened on the browser. -->
 
 让我们复习一下在浏览器上打开页面 https://studies.cs.helsinki.fi/exampleapp/notes 时会发生什么。
 
@@ -614,7 +612,7 @@ Html 元素也可以有 class 以外的其他属性。 包含 Note 的 div 元�
 
 <!-- The Notes page contains a [form-element](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form) -->
 
-Notes 页面包含一个 [form 元素](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form)
+Notes 页面包含一个 [form 元素](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form)。
 
 ![](../../images/0/20e.png)
 
@@ -717,11 +715,11 @@ Notes 页面使用了 AJAX 获取 Notes 数据。 提交表单仍然使用传统
 <!-- The application URLs reflect the old, carefree times. JSON data is fetched from the url <https://studies.cs.helsinki.fi/exampleapp/data.json> and new notes are sent to the url <https://studies.cs.helsinki.fi/exampleapp/new_note>.   -->
 <!-- Nowadays urls like these would not be considered acceptable, as they don't follow the generally acknowledged conventions of [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services) APIs, which we'll look into more in [第3章](/zh/part3) -->
 
-应用的 url 反映了过去无忧无虑的时光。 数据从 url https://studies.cs.helsinki.fi/exampleapp/data.JSON 中获取，新的 Note 被发送到 url https://studies.cs.helsinki.fi/exampleapp/new_note 。 如今，这样的 url 被认为是不可接受的，因为它们没有遵循公认的 RESTful api 约定，我们将在第三章中进一步研究
+应用的 url 反映了过去无忧无虑的时光。 数据从 url https://studies.cs.helsinki.fi/exampleapp/data.JSON 中获取，新的 Note 被发送到 url https://studies.cs.helsinki.fi/exampleapp/new_note 。 如今，这样的 url 被认为是不可接受的，因为它们没有遵循公认的 RESTful api 约定，我们将在第三章中进一步研究。
 
 <!-- The thing termed AJAX is now so commonplace that it's taken for granted. The term has faded into oblivion, and the new generation has not even heard of it. -->
 
-现在 AJAX 这个术语是如此普遍，以至于人们认为它是理所当然的。 但这个词已经逐渐被遗忘，“新时代的我们”甚至没有听说过它。
+现在 AJAX 的存在是如此普遍，以至于人们认为它是理所当然的。 AJAX 这个术语已经逐渐被遗忘，“新时代的我们”甚至没有听说过它。
 
 ### Single page app
 【单页面应用】
@@ -867,7 +865,7 @@ var sendToServer = function(note) {
 
 <!-- During this course, we will get familiar with React and the [Redux](https://github.com/reactjs/redux)-library, which are frequently used together. -->
 
-目前，实现 web 应用浏览器端逻辑的最流行的工具是 Facebook 的 React-库。 在本课程中，我们将熟悉 React 和 [Redux](https://github.com/reactjs/redux) 库，它们经常一起使用。
+目前，实现 web 应用浏览器端逻辑的最流行的工具是 Facebook 的 [React](https://reactjs.org/) 库。 在本课程中，我们将熟悉 React 和 [Redux](https://github.com/reactjs/redux) 库，它们经常一起使用。
 
 <!-- The status of React seems strong, but the world of JavaScript is ever changing. For example, recently a newcomer [VueJS](https://vuejs.org/) has been capturing some interest. -->
 
@@ -983,9 +981,9 @@ part2
 
   <h4>0.4: new note</h4>
 
-<!-- In chapter [Loading a page containing JavaScript - revised](/zh/part0/web_应用的基础设施#loading-a-page-containing-java-script-revised) the chain of events caused by opening the page <https://studies.cs.helsinki.fi/exampleapp/notes> is depicted as a [sequence diagram](https://www.geeksforgeeks.org/unified-modeling-language-uml-sequence-diagrams/) -->
+<!-- In chapter [Loading a page containing JavaScript - review](/zh/part0/web_应用的基础设施#loading-a-page-containing-java-script-review) the chain of events caused by opening the page <https://studies.cs.helsinki.fi/exampleapp/notes> is depicted as a [sequence diagram](https://www.geeksforgeeks.org/unified-modeling-language-uml-sequence-diagrams/) -->
 
-在  [加载一个包含 JavaScript 的页面 - 复习](/zh/part0/web_应用的基础设施#loading-a-page-containing-java-script-revised)这一章中，页面打开 https://studies.cs.helsinki.fi/exampleapp/notes 时引起的事件链被描述为一个时序图
+在  [加载一个包含 JavaScript 的页面 - 复习](/zh/part0/web_应用的基础设施#loading-a-page-containing-java-script-review)这一章中，页面打开 https://studies.cs.helsinki.fi/exampleapp/notes 时引起的事件链被描述为一个时序图
 
 <!-- The diagram was made using [websequencediagrams](https://www.websequencediagrams.com) service as follows: -->
 
@@ -1015,7 +1013,7 @@ end note
 
 <!-- **Create a similar diagram** depicting the situation where the user creates a new note on page <https://studies.cs.helsinki.fi/exampleapp/notes> by writing something into the text field and clicking the <i>submit</i> button. -->
 
-创建一个类似的图表，描述这种情况: 用户在页面上创建一个新的 Note，在文本区域写一些东西，然后点击提交按钮到 https://studies.cs.helsinki.fi/exampleapp/notes。
+创建一个类似的图表，描述这种情况: 用户在页面上创建一个新的 Note，在文本区域写一些东西，然后点击提交按钮到 https://studies.cs.helsinki.fi/exampleapp/notes 。
 
 <!-- If necessary, show operations on the browser or on the server as comments on the diagram. -->
 

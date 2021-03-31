@@ -8,17 +8,17 @@ lang: zh
 <div class="content">
 
 
-<!-- Before starting a new topic, let's recap some of the topics that proved difficult last year. -->
-在新的话题开始之前，让我们回顾一下去年的课程中认为是难点的一些话题。
+<!-- Before starting a new part, let's recap some of the topics that proved difficult last year. -->
+在新的章节开始之前，让我们回顾一下去年的课程中认为是难点的一些话题。
 
 ### console.log
 ***What's the difference between an experienced JavaScript programmer and a rookie? The experienced one uses console.log 10-100 times more.***
 
 一个JavaScript 老鸟和菜鸟有什么区别? 老鸟使用 console.log的次数是菜鸟的数十倍甚至数百倍。
 
-<!-- Paradoxically, this seems to be true even though a rookie programmer would need console.log (or any debugging method) more than an experienced one. -->
+<!-- Paradoxically, this seems to be true even though a rookie programmer would need <i>console.log</i> (or any debugging method) more than an experienced one. -->
 
-矛盾的是，实际上，菜鸟比老鸟更需要 console.log (或任何其他调试方法)。
+矛盾的是，实际上，菜鸟比老鸟更需要 <i>console.log</i> (或任何其他调试方法)。
 
 <!-- When something does not work, don't just guess what's wrong. Instead, log or use some other way of debugging.  -->
 当某些事情不能正常工作时，不要只是猜测错误，而应记录或使用其他调试方法。
@@ -47,20 +47,20 @@ props value is [Object object]
 
 而当您将对象用逗号分隔，将不同参数传递给 console.log 时，就像在上面的第二个例子中一样，对象的内容将作为有意义的字符串打印到开发者控制台中。
 
-<!-- If necessary, read more about debugging React-applications [here](/zh/part1/深入_react_应用调试#debugging-react-applications). -->
-如果有必要，请阅读更多关于React 应用调试的内容[here](/zh/part1/深入_react_应用调试#debugging-react-applications)。
+<!-- If necessary, read more about [debugging React-applications](/en/part1/a_more_complex_state_debugging_react_apps#debugging-react-applications). -->
+如果有必要，请阅读更多关于[React 应用调试](/zh/part1/深入_react_应用调试#debugging-react-applications)的内容。
 
 ### Protip: Visual Studio Code snippets 
 【高级技巧: Visual Studio Code 的代码片段】
-<!-- With Visual studio code it's easy to create 'snippets', i.e. shortcuts for quickly generating commonly re-used portions of code, much like how 'sout' works in Netbeans.  -->
+<!-- With  Visual Studio Code it's easy to create 'snippets', i.e. shortcuts for quickly generating commonly re-used portions of code, much like how 'sout' works in Netbeans.-->
 
-使用 Visual studio code能够很容易创建“代码片段（snippets）” ，即快速生成常用代码块的快捷方式，很像 Netbeans 中的“ sout”。
+使用 Visual Studio Code能够很容易创建“代码片段（snippets）” ，即快速生成常用代码块的快捷方式，很像 Netbeans 中的“ sout”。
 
 <!-- Instructions for creating snippets can be found [here](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets). -->
 创建代码片段的说明可以在这里找到 [here](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).。
 
-<!-- Useful, ready-made snippets can also be found as VS Code plugins, for example [here](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets). -->
-有用的、现成的代码片段也可以在 VS 代码插件中找到，例如[这里](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets).
+<!-- Useful, ready-made snippets can also be found as VS Code plugins, in the [marketplace](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets). -->
+有用的、现成的代码片段也可以在 VS 代码插件中找到，在[插件市场](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets).
 
 <!-- The most important snippet is the one for the <em>console.log()</em> command, for example <em>clog</em>. This can be created like so:  -->
 最重要的片段是用于 <em>console.log()</em>  命令的片段，例如<em>clog</em>:
@@ -76,9 +76,9 @@ props value is [Object object]
   }
 }
 ```
-<!-- Debugging your code using _console.log()_ is so common that Visual studio code has that snippet built in. To use it, type _log_ and hit tab to autocomplete.  -->
+<!-- Debugging your code using _console.log()_ is so common that  Visual Studio Code has that snippet built in. To use it, type _log_ and hit tab to autocomplete.  -->
 
-使用  _console.log()_  来debug 你的代码十分常见，Visual studio code 有内置的snippet。可以使用  _log_  和tab键来自动补全
+使用  _console.log()_  来debug 你的代码十分常见， Visual Studio Code 有内置的snippet。可以使用  _log_  和tab键来自动补全
 
 ### JavaScript Arrays 
 【JavaScript 数组】
@@ -94,20 +94,20 @@ props value is [Object object]
 - [Map](https://www.youtube.com/watch?v=bCqtb-Z5YGQ&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=2)
 - [Reduce 基础](https://www.youtube.com/watch?v=Wl98eZpkp-c&t=31s)
 
-  
 
 ### Event handlers revisited
 【事件处理复习】
+
 <!-- Based on last year's course, event handling has proven to be difficult.  -->
 基于去年的课程，事件处理证明是一个难点内容。
-<!-- It's worth reading the revision chapter at the end of the previous part [event handlers revisited](/zh/part1/深入_react_应用调试#event-handling-revisited), if it feels like your own knowledge on the topic needs some brushing up.  -->
 
+<!-- It's worth reading the revision chapter at the end of the previous part [event handlers revisited](/zh/part1/深入_react_应用调试#event-handling-revisited), if it feels like your own knowledge on the topic needs some brushing up.  -->
 如果你觉得自己关于这个议题的知识需要复习一下，那么应该阅读上一章节结尾的复习章节 [事件处理复习](/zh/part1/深入_react_应用调试#event-handling-revisited)。
 
 <!-- Passing event handlers to the child components of the <i>App</i> component has raised some questions. A small revision on the topic can be found [here](/zh/part1/深入_react_应用调试#passing-event-handlers-to-child-components). -->
 将事件处理传递给<i>App</i> 组件的子组件引发了一些问题。 关于这个议题的一个小复习[在这里](/zh/part1/深入_react_应用调试#passing-event-handlers-to-child-components)。
 
-### Rendering collections
+### Rendering Collections
 【渲染集合】
 <!-- We will now do the 'frontend', or the browser-side application logic, in React for an application that's similar to the example application from [第0章](/zh/part0) -->
 
@@ -118,32 +118,10 @@ props value is [Object object]
 - Note 应用实际上是在创建一个和提醒、便笺相关的应用，因此以下的Note均翻译为便笺。
 
 <!-- Let's start with the following: -->
-让我们从如下代码开始:
+让我们从如下代码开始( <i>App.js</i>):
 
 ```js
 import React from 'react'
-import ReactDOM from 'react-dom'
-
-const notes = [
-  {
-    id: 1,
-    content: 'HTML is easy',
-    date: '2019-05-30T17:30:31.098Z',
-    important: true
-  },
-  {
-    id: 2,
-    content: 'Browser can execute only Javascript',
-    date: '2019-05-30T18:39:34.091Z',
-    important: false
-  },
-  {
-    id: 3,
-    content: 'GET and POST are the most important methods of HTTP protocol',
-    date: '2019-05-30T19:20:14.298Z',
-    important: true
-  }
-]
 
 const App = (props) => {
   const { notes } = props
@@ -160,6 +138,36 @@ const App = (props) => {
   )
 }
 
+export default App
+```
+
+<i>index.js</i> 内容如下:
+
+```js
+import ReactDOM from 'react-dom'
+import App from './App.js'
+
+const notes = [
+  {
+    id: 1,
+    content: 'HTML is easy',
+    date: '2019-05-30T17:30:31.098Z',
+    important: true
+  },
+  {
+    id: 2,
+    content: 'Browser can execute only JavaScript',
+    date: '2019-05-30T18:39:34.091Z',
+    important: false
+  },
+  {
+    id: 3,
+    content: 'GET and POST are the most important methods of HTTP protocol',
+    date: '2019-05-30T19:20:14.298Z',
+    important: true
+  }
+]
+
 ReactDOM.render(
   <App notes={notes} />,
   document.getElementById('root')
@@ -171,7 +179,7 @@ ReactDOM.render(
 <!-- Every note contains its textual content and a timestamp as well as a _boolean_ value for marking whether the note has been categorized as important or not, and also a unique <i>id</i>. -->
 每个便笺都包含其文本内容、时间戳以及一个布尔值，用于标记该便笺是否重要，便笺还包含一个惟一的<i>id</i>。
 
-<!-- The code functions due to the fact that there are exactly three notes in the array.  -->
+<!-- The example above works due to the fact that there are exactly three notes in the array.  -->
 由于数组中仅有三个便笺，因此代码可以运行。
 
 <!-- A single note is rendered by accessing the objects in the array by referring to a hard-coded index number: -->
@@ -181,7 +189,7 @@ ReactDOM.render(
 <li>{notes[1].content}</li>
 ```
 
-<!-- This is, of course, not practical. The solution can be made general by generating React-elements from the array objects using the [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. -->
+<!-- This is, of course, is not practical. The solution can be made general by generating React-elements from the array objects using the [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function. -->
 数组下标这种方式当然是无法通用的。 可以使用 [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 函数从数组对象生成 React-元素，使解决方案变得更通用。
 
 ```js
@@ -194,7 +202,7 @@ notes.map(note => <li>{note.content}</li>)
 ```js
 [
   <li>HTML is easy</li>,
-  <li>Browser can execute only Javascript</li>,
+  <li>Browser can execute only JavaScript</li>,
   <li>GET and POST are the most important methods of HTTP protocol</li>,
 ]
 ```
@@ -253,9 +261,9 @@ const App = (props) => {
 
 ![](../../images/2/1a.png)
 
-<!-- As the linked [page](https://reactjs.org/docs/lists-and-keys.html#keys) in the error message instructs, the list items, i.e. the elements generated by the _map_ method, must each have a unique key value:  an attribute called <i>key</i>. -->
+<!-- As the linked [React page](https://reactjs.org/docs/lists-and-keys.html#keys) in the error message suggests, the list items, i.e. the elements generated by the _map_ method, must each have a unique key value:  an attribute called <i>key</i>. -->
 
-正如错误消息中的链接 [page](https://reactjs.org/docs/lists-and-keys.html#keys) 所说明的，列表项，即 map 方法生成的每个元素，都必须有一个唯一的键值: 一个名为<i>key</i> 的属性。
+正如错误消息中的链接 [React page](https://reactjs.org/docs/lists-and-keys.html#keys) 所建议的，列表项，即 map 方法生成的每个元素，都必须有一个唯一的键值: 一个名为<i>key</i> 的属性。
 
 <!-- Let's add the keys: -->
 让我们添加上key:
@@ -284,8 +292,8 @@ const App = (props) => {
 <!-- And the error message disappears.  -->
 错误就消失了。
 
-<!-- React uses the key attributes of objects in an array to determine how to update the view generated by a component when the component is re-rendered. More about this [here](https://reactjs.org/docs/reconciliation.html#recursing-on-children). -->
-React 使用数组中对象的key属性来确定组件在重新渲染时，如何更新组件生成的视图。 更多的说明在[这里](https://reactjs.org/docs/reconciliation.html#recursing-on-children)。 
+<!-- React uses the key attributes of objects in an array to determine how to update the view generated by a component when the component is re-rendered. More about this in the [React documentation](https://reactjs.org/docs/reconciliation.html#recursing-on-children). -->
+React 使用数组中对象的key属性来确定组件在重新渲染时，如何更新组件生成的视图。 更多的说明在[React 文档](https://reactjs.org/docs/reconciliation.html#recursing-on-children)。 
 
 ### Map
 <!-- Understanding how the array method [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) works is crucial for the rest of the course.  -->
@@ -304,7 +312,7 @@ const notes = [
   },
   {
     id: 2,
-    content: 'Browser can execute only Javascript',
+    content: 'Browser can execute only JavaScript',
     date: '2019-05-30T18:39:34.091Z',
     important: false
   },
@@ -372,7 +380,7 @@ notes.map(note =>
 )
 ```
 
-<!-- which generates a <i>li</i> tag containing the contents of the note from each note object.  -->
+<!-- which generates an <i>li</i> tag containing the contents of the note from each note object.  -->
 它生成一个<i>li</i> 标签，其中包含每个便笺对象的便笺内容。
 
 <!-- Because the function parameter of the _map_ method -->
@@ -382,13 +390,14 @@ notes.map(note =>
 note => <li key={note.id}>{note.content}</li>
 ```
 
-<!-- The use of curly braces will cause some headache in the beginning, but you will get used to them soon enough. The visual feedback from React is immediate. -->
-一开始使用花括号会让你头疼，但是你很快就会习惯的。 因为来自 React 的图形反馈是即时的。
+<!-- The use of curly braces will cause some pain in the beginning, but you will get used to them soon enough. The visual feedback from React is immediate. -->
+一开始使用花括号会让你痛苦，但是你很快就会习惯的。 因为来自 React 的图形反馈是即时的。
 
-### Anti-pattern: array indexes as keys 
+### Anti-pattern: Array Indexes as Keys
 【反模式: 将数组的索引作为键】
-<!-- We could have made the error message on our console disappear by using the array indexes as keys. The indexes can be retrieved by passing a second parameter to the callback function of the map-method:  -->
-通过使用数组的索引作为键，我们可以使控制台上的错误消息消失。可以通过向 map-方法 的回调函数传递的第二个参数来获取索引:
+
+<!-- We could have made the error message on our console disappear by using the array indexes as keys. The indexes can be retrieved by passing a second parameter to the callback function of the _map_ method:  -->
+通过使用数组的索引作为键，我们可以使控制台上的错误消息消失。可以通过向 _map_ 方法 的回调函数传递的第二个参数来获取索引:
 
 ```js
 notes.map((note, i) => ...)
@@ -412,8 +421,9 @@ notes.map((note, i) => ...)
 
 <!-- This is, however, **not recommended** and can cause undesired problems even if it seems to be working just fine.  -->
 然而，这是**不推荐的**，因为可能导致意想不到的问题，即使它似乎能正常工作。
-<!-- Read more [from here](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). -->
-更多内容请点击 [这里](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318)。
+
+<!-- Read more in [this article](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). -->
+更多内容请点击 [](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318)。
 
 ### Refactoring modules 
 【重构模块】
@@ -437,8 +447,8 @@ const App = ({ notes }) => { //highlight-line
 }
 ```
 
-<!-- If you have forgotten what destructuring means and how it works, review [this](/zh/part1/组件状态，事件处理#destructuring). -->
-如果您忘记了解构的含义以及它是如何工作的，请复习 [这里](/zh/part1/组件状态，事件处理#destructuring)
+<!-- If you have forgotten what destructuring means and how it works,  please review the [section on destructuring](/en/part1/component_state_event_handlers#destructuring). -->
+如果您忘记了解构的含义以及它是如何工作的，请复习 [关于解构](/zh/part1/组件状态，事件处理#destructuring)的知识。
 
 <!-- We'll separate displaying a single note into its own component <i>Note</i>:  -->
 我们将单独显示一个便笺到它自己的<i>Note</i>组件:
@@ -475,15 +485,18 @@ const App = ({ notes }) => {
 可以在单个文件中编写整个 React 应用。 虽然实践中很少这么用。 通常的做法是将每个组件在其自己的文件中，声明为一个<i>ES6-模块</i>。
 
 <!-- We have been using modules the whole time. The first few lines of the file: -->
-我们一直在使用模块。比如文件的前几行:
+我们一直在使用模块。比如 <i>index.js</i>:文件的前几行:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App.js'
 ```
 
 <!-- [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in the code. The <i>react</i> module is placed into a variable called _React_ and <i>react-dom</i> to variable _ReactDOM_. -->
-为了让它们能够在代码中使用，就[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 了两个模块： <i>react</i> 模块被放入一个名为 React 的变量中， <i>react-dom</i> 模块放到了 ReactDOM 变量中。
+为了让它们能够在代码中使用，就[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 了两个模块： <i>React</i> 模块被放入一个名为 React 的变量中， <i>React-DOM</i> 模块放到了 ReactDOM 变量中。
+
+[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
+为了让它们能够在代码中使用，就[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 了两个模块：  <i>react-dom</i>  模块放到了 _ReactDOM_ 变量中，主应用的模块被放入一个名为 _App_ 的变量中。
 
 <!-- Let's move our <i>Note</i> component into its own module.  -->
 让我们将我们的<i>Note</i> 组件移动到它自己的模块中。
@@ -491,7 +504,7 @@ import ReactDOM from 'react-dom'
 <!-- In smaller applications, components are usually placed in a directory called <i>components</i> , which is in turn placed within the <i>src</i> directory. The convention is to name the file after the component.  -->
 在较小型的应用中，组件通常放在一个名为<i>components</i> 的目录中，而这个<i>components</i>目录又放在<i>src</i> 目录中。 约定是：按照组件的名称来命名文件。
 
-<!-- Now we'll create a directory called <i>components</i> for our application and place a file named <i>Note.js</i> inside.  -->
+<!-- Now, we'll create a directory called <i>components</i> for our application and place a file named <i>Note.js</i> inside.  -->
 现在，我们将为应用创建一个名为<i>components</i> 的目录，并在其中放置一个名为<i>Note.js</i> 的文件。
 
 <!-- The contents of the Note.js file are as follows:  -->
@@ -516,11 +529,10 @@ export default Note
 模块的最后一行  [exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) ，是在声明模块，即变量<i>Note</i>。
 
 <!-- Now the file using the component, <i>index.js</i>, can [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) the module:  -->
-现在使用这个组件的文件，即<i>index.js</i>，可以 [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 这个模块了:
+现在使用这个组件的文件，即<i>App.js</i>，可以 [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 这个模块了:
 
 ```js
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Note from './components/Note' // highlight-line
 
 const App = ({ notes }) => {
@@ -538,13 +550,13 @@ const App = ({ notes }) => {
 './components/Note'
 ```
 
-<!-- The period in the beginning refers to the current directory, so the module's location is a file called <i>Note.js</i> in a sub-directory of the current <i>components</i>. directory. The filename extension can be omitted. -->
+<!-- The period in the beginning refers to the current directory, so the module's location is a file called <i>Note.js</i> in a sub-directory of the current <i>components</i>. directory.  The filename extension _.js_ can be omitted. -->
 开头的 _句点_ 指的是当前工作目录，因此模块的位置是当前<i>components</i> 的子目录中的一个名为<i>Note.js</i> 的文件。 文件扩展名(_.js_)可以省略。
 
 <!--<i>App</i> is a component as well, so let's declare it in its own module as well. Since it is the root component of the application, we'll place it in the <i>src</i> directory. The contents of the file are as follows:--> 
-<i>App</i>也是一个组件，所以让我们在它自己的模块中声明它。 因为它是应用的根组件，所以我们将它放在  <i>src</i> 目录中。 文件内容如下:
+<!-- <i>App</i>也是一个组件，所以让我们在它自己的模块中声明它。 因为它是应用的根组件，所以我们将它放在  <i>src</i> 目录中。 文件内容如下: -->
 
-```js
+<!-- ```js
 import React from 'react'
 import Note from './components/Note'
 
@@ -563,12 +575,12 @@ const App = ({ notes }) => {
 
 
 export default App // highlight-line
-```
+``` -->
 
 <!-- What's left in the <i>index.js</i> file is:  -->
-<i>index.js</i> 文件剩下的内容是:
+<!-- <i>index.js</i> 文件剩下的内容是: -->
 
-```js
+<!-- ```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'  // highlight-line
@@ -581,7 +593,7 @@ ReactDOM.render(
   <App notes={notes} />,
   document.getElementById('root')
 )
-```
+``` -->
 
 <!-- Modules have plenty of other uses other than enabling component declarations to be separated into their own files. We will get back into them later in this course.  -->
 
@@ -589,11 +601,11 @@ ReactDOM.render(
 
 
 
-<!-- The current code of the application can be found on [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1). -->
-应用的当前代码可以在 [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1)上找到。
+<!-- The current code of the application can be found on [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part2-1). -->
+应用的当前代码可以在 [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part2-1)上找到。
 
-<!-- Note that the master branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1): -->
-注意，仓库的<i>主分支</i>包含应用的后续版本的代码。 当前的代码在分支 [part2-1](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1)中:
+<!-- Note that the master branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy/part2-notes/tree/part2-1): -->
+注意，仓库的<i>主分支</i>包含应用的后续版本的代码。 当前的代码在分支 [part2-1](https://github.com/fullstack-hy/part2-notes/tree/part2-1)中:
 
 ![](../../images/2/2e.png)
 
@@ -602,7 +614,7 @@ ReactDOM.render(
 <!-- If you clone the project, run the command _npm install_ before starting the application with _npm start_. -->
 如果您克隆了项目，请在启动应用之前运行命令_npm install_ 。
 
-### When the application breaks 
+### When the Application Breaks
 【当应用挂掉了】
 <!-- Early in your programming career (and even after 30 years of coding like yours truly), what often happens is that the application just completely breaks down. This is even more the case with dynamically typed languages, such as JavaScript, where the compiler does not check the data type of, for instance, function variables or return values.  -->
 
@@ -616,7 +628,7 @@ ReactDOM.render(
 
 
 <!-- In these situations your best way out is the <em>console.log</em>. -->
-在这些情况下，你最好的方案就是  <em>console.log</em>.。
+在这些情况下，你最好的方案就是  <em>console.log</em>。
 
 <!-- The piece of code causing the explosion is this:  -->
 引起崩溃的代码是长这样的:
@@ -624,7 +636,7 @@ ReactDOM.render(
 ```js
 const Course = ({ course }) => (
   <div>
-   <Header course={course} />
+    <Header course={course} />
   </div>
 )
 
@@ -663,20 +675,20 @@ const App = () => {
 
 
 
-<!-- To see the printing on the console, we must scroll up over the long red wall of errors. -->
+<!-- To see the printing in the console, we must scroll up over the long red wall of errors. -->
 要在控制台上看到打印结果，我们必须翻过长长的红色报错墙。
 
 ![](../../images/2/4b.png)
 
 
 
-<!-- When one thing is found to be working, it's time to log deeper. If the component has been declared as a single statement, or a function without a return, it makes printing to the console harder.  -->
+<!-- When one thing is found to be working, it's time to log deeper. If the component has been declared as a single statement, or a function without a return, it makes printing to the console harder.-->
 当打印被发现是有效时，就是时候往更深入的地方打印记录了。 如果组件声明是单个语句，或者声明为了函数而没有返回，则会增加打印到控制台的难度。
 
 ```js
 const Course = ({ course }) => (
   <div>
-   <Header course={course} />
+    <Header course={course} />
   </div>
 )
 ```
@@ -691,7 +703,7 @@ const Course = ({ course }) => {
   console.log(course) // highlight-line
   return (
     <div>
-    <Header course={course} />
+      <Header course={course} />
     </div>
   )
 }
@@ -708,7 +720,7 @@ const Course = (props) => { // highlight-line
   const { course } = props
   return (
     <div>
-    <Header course={course} />
+      <Header course={course} />
     </div>
   )
 }
@@ -734,9 +746,9 @@ const Course = (props) => { // highlight-line
 
 <h3>Exercises 2.1.-2.5.</h3>
 
-<!-- The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-这些练习是通过 GitHub 提交的，并在[提交系统submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)那样将练习标记为 done。
+这些练习是通过 GitHub 提交的，并在[提交系统submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021)那样将练习标记为 done。
 
 <!-- You can submit all of the exercises into the same repository, or use multiple different repositories. If you submit exercises from different parts into the same repository, name your directories well. -->
 您可以将本课程的所有练习提交到同一个仓库，或者使用多个不同的仓库。 如果您将来自不同章节的练习提交到同一个仓库中，请使用一个合理的目录命名方案。 
@@ -755,8 +767,8 @@ const Course = (props) => { // highlight-line
 <h4>2.1: Course information 步骤6</h4>
 
 <!-- Let's finish the code for rendering course contents from exercises 1.1 - 1.5. You can start with the code from the model answers.  -->
-<!-- The model answers for part 1 can be found by going to the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen), click on <i>my submissions</i> at the top, and in the row corresponding to part 1 under the <i>solutions</i> column click on <i>show</i>. To see the solution to the <i>course info<i/> exercise, click on _index.js_ under <i>kurssitiedot</i> ("kurssitiedot" means "course info"). -->
-让我们完成练习 1.1 - 1.5中，用于渲染课程内容的代码。 您可以从模型答案的代码开始。第一章中的模型答案可以到 [提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)来找到，单击顶部的<i>my submissions</i>，在对应第一章中下面<i>solutions</i>列，点击<i>show</i>。 如果要查看<i>course info</i> 练习，点击 <i>kurssitiedot</i> 下的_index.js_ ("kurssitiedot" 表示课程信息)
+<!-- The model answers for part 1 can be found by going to the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021), click on <i>my submissions</i> at the top, and in the row corresponding to part 1 under the <i>solutions</i> column click on <i>show</i>. To see the solution to the <i>course info<i/> exercise, click on _index.js_ under <i>kurssitiedot</i> ("kurssitiedot" means "course info"). -->
+让我们完成练习 1.1 - 1.5中，用于渲染课程内容的代码。 您可以从模型答案的代码开始。第一章中的模型答案可以到 [提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)来找到，单击顶部的<i>my submissions</i>，在对应第一章中下面<i>solutions</i>列，点击<i>show</i>。 如果要查看<i>course info</i> 练习，点击 <i>kurssitiedot</i> 下的_index.js_ ("kurssitiedot" 表示课程信息)
 
 
 <!-- It might not be good to copy a project or to put the  <i>node\_modules</i> directory into the version control per se.  -->

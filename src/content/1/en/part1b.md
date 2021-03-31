@@ -9,13 +9,13 @@ lang: en
 
 During the course, we have a goal and a need to learn a sufficient amount of JavaScript in addition to web development.
 
-JavaScript has advanced rapidly in the last few years and in this course we use features from the newer versions. The official name of the JavaScript standard is [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). At this moment, the latest version is the one released in June of 2019 with the name [ECMAScript® 2019](http://www.ecma-international.org/ecma-262/10.0/index.html), otherwise known as ES10.
+JavaScript has advanced rapidly in the last few years and in this course we use features from the newer versions. The official name of the JavaScript standard is [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript). At this moment, the latest version is the one released in June of 2020 with the name [ECMAScript®2020](https://www.ecma-international.org/ecma-262/), otherwise known as ES11.
 
 Browsers do not yet support all of JavaScript's newest features. Due to this fact, a lot of code run in browsers has been <i>transpiled</i> from a newer version of JavaScript to an older, more compatible version.
 
 Today, the most popular way to do the transpiling is by using [Babel](https://babeljs.io/). Transpilation is automatically configured in React applications created with create-react-app. We will take a closer look at the configuration of the transpilation in [part 7](/en/part7) of this course.
 
-[Node.js](https://nodejs.org/en/) is a JavaScript runtime environment based on Google's [Chrome V8](https://developers.google.com/v8/) JavaScript engine and works practically anywhere - from servers to mobile phones. Let's practice writing some JavaScript using Node. It is expected that the version of Node.js installed on your machine is at least version <i>10.18.0</i>. The latest versions of Node already understand the latest versions of JavaScript, so the code does not need to be transpiled.
+[Node.js](https://nodejs.org/en/) is a JavaScript runtime environment based on Google's [Chrome V8](https://developers.google.com/v8/) JavaScript engine and works practically anywhere - from servers to mobile phones. Let's practice writing some JavaScript using Node. It is expected that the version of Node.js installed on your machine is at least version <i>14.8.0</i>. The latest versions of Node already understand the latest versions of JavaScript, so the code does not need to be transpiled.
 
 
 The code is written into files ending with <i>.js</i> that are run by issuing the command <em>node name\_of\_file.js</em>
@@ -66,7 +66,7 @@ t.forEach(value => {
 })                    
 ```
 
-Notable in this example is the fact that the contents of the array can be modified even though it is defined as a _const_. Because the array is an object the variable always points to the same object. However, the content of the array changes as new items are added to it.
+Notable in this example is the fact that the contents of the array can be modified even though it is defined as a _const_. Because the array is an object, the variable always points to the same object. However, the content of the array changes as new items are added to it.
 
 One way of iterating through the items of the array is using _forEach_ as seen in the example. _forEach_ receives a <i>function</i> defined using the arrow syntax as a parameter.
 
@@ -76,7 +76,7 @@ value => {
 }
 ```
 
-forEach calls the function <i>for each of the items in the array</i>, always passing the individual item as a parameter. The function as the parameter of forEach may also receive [other parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
+forEach calls the function <i>for each of the items in the array</i>, always passing the individual item as an argument. The function as the argument of forEach may also receive [other arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
 
 In the previous example, a new item was added to the array using the method [push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push). When using React, techniques from functional programming are often used. One characteristic of the functional programming paradigm is the use of [immutable](https://en.wikipedia.org/wiki/Immutable_object) data structures. In React code, it is preferable to use the method [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), which does not add the item to the array, but creates a new array in which the content of the old array and the new item are both included.
 
@@ -512,7 +512,7 @@ When it comes to syntax, the classes and the objects created from them are very 
 
 The introduction of the class syntax was a controversial addition. Check out [Not Awesome: ES6 Classes](https://github.com/petsel/not-awesome-es6-classes) or [Is “Class” In ES6 The New “Bad” Part?](https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65) for more details.
 
-The ES6 class syntax is used a lot in "old" React and also in Node.js, hence an understanding of it being beneficial even in this course. However, since we are using the new [Hooks](https://reactjs.org/docs/hooks-intro.html) feature of React throughout this course, we have no concrete use for JavaScripts class syntax.
+The ES6 class syntax is used a lot in "old" React and also in Node.js, hence an understanding of it is beneficial even in this course. However, since we are using the new [Hooks](https://reactjs.org/docs/hooks-intro.html) feature of React throughout this course, we have no concrete use for JavaScript's class syntax.
 
 ### JavaScript materials
 

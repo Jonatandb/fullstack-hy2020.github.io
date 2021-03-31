@@ -15,7 +15,7 @@ lang: zh
 我们将在[NodeJS](https://nodejs.org/en/)的基础上构建我们的后端，这是一个基于 Google 的 [Chrome V8](https://developers.google.com/v8/) 引擎的 JavaScript 运行时环境。
 
 <!-- This course material was written with the version <i>v10.18.0</i> of Node.js. Please make sure that your version of Node is at least as new as the version used in the material (you can check the version by running _node -v_ in the command line). -->
-本课程材料是使用 Node.js 的<i>v10.18.0</i> 版本编写的。 请确保您的 Node 版本不低于材料中使用的版本(您可以通过在命令行中运行 _node -v_ 来检查版本)。
+本课程材料是使用 Node.js 的<i>v14.8.0</i> 版本编写的。 请确保您的 Node 版本不低于材料中使用的版本(您可以通过在命令行中运行 _node -v_ 来检查版本)。
 
 <!-- As mentioned in [第1章](/zh/part1/javascript), browsers don't yet support the newest features of JavaScript, and that is why the code running in the browser must be <i>transpiled</i> with e.g. [babel](https://babeljs.io/). The situation with JavaScript running in the backend is different. The newest version of Node supports a large majority of the latest features of JavaScript, so we can use the latest features without having to transpile our code. -->
 正如在 [第1章](/zh/part1/javascript)中提到的，浏览器还不支持 JavaScript 的最新特性，这就是为什么在浏览器中运行的代码必须是[babel](https://babeljs.io/)转译过的。而在后端运行 JavaScript 的情况是不同的。 最新版本的 Node 支持大部分最新的 JavaScript 特性，因此我们可以使用最新的特性而不必转译我们的代码。
@@ -123,9 +123,9 @@ echo "Error: no test specified" && exit 1
 ```js
 const http = require('http')
 
-const app = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Hello World')
+const app = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('Hello World')
 })
 
 const PORT = 3001
@@ -274,8 +274,8 @@ console.log(`Server running on port ${PORT}`)
 <!-- Implementing our server code directly with Node's built-in [http](https://nodejs.org/docs/latest-v8.x/api/http.html) web server is possible. However, it is cumbersome, especially once the application grows in size. -->
 直接使用 Node 内置的[http](https://nodejs.org/docs/latest-v8.x/api/http.html) web 服务器实现我们的服务器代码是可行的。 但是，它很麻烦，特别是当应用规模“变大变长”时。
 
-<!-- Many libraries have been developed to ease server side development with Node, by offering a more pleasing interface to work with than the built-in http module. By far the most popular library intended for this purpose is [express](http://expressjs.com). -->
-为了提供一个比内置的 http 模块更友好的界面，许多库已经开发出来，以简化使用 Node 作为服务器端开发。 到目前为止，最受欢迎的库是[express](http://expressjs.com)。
+<!-- Many libraries have been developed to ease server side development with Node, by offering a more pleasing interface to work with the built-in http module. These libraries aim to provide a better abstraction for general use cases we usually require to build a backend server. By far the most popular library intended for this purpose is [express](http://expressjs.com). -->
+为了提供一个比内置的 http 模块更友好的界面，许多库已经开发出来，以简化使用 Node 作为服务器端开发。这些库致力于为构建后台服务器的一般的用例提供一个更好的抽象，到目前为止，最受欢迎的库是[express](http://expressjs.com)。
 
 <!-- Let's take express into use by defining it as a project dependency with the command: -->
 让我们通过下面的命令将它定义为一个项目依赖，来开始使用 express:
@@ -447,7 +447,7 @@ response.end(JSON.stringify(notes))
 解决这个问题的方法是使用[nodemon](https://github.com/remy/nodemon) :
 
 > <!--<i>nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.</i>-->
-nodemon 将监视启动 nodemon 的目录中的文件，如果任何文件发生更改，nodemon 将自动重启节点应用。  
+nodemon 将监视启动 nodemon 的目录中的文件，如果任何文件发生更改，nodemon 将自动重启node应用。  
 
 <!-- Let's install nodemon by defining it as a <i>development dependency</i> with the command: -->
 让我们通过下面的命令将 nodemon 定义为<i>开发依赖development dependency</i>:
@@ -466,7 +466,7 @@ npm install --save-dev nodemon
     "express": "^4.17.1",
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.7"
   }
 }
 ```
@@ -498,7 +498,7 @@ node_modules/.bin/nodemon index.js
   // ..
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "nodemon index.js", // highlight-line
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   // ..
@@ -529,7 +529,7 @@ npm run dev
 Representational State Transfer，又名REST， 是在2000年 Roy Fielding 的[论文](https://www.ics.uci.edu/~Fielding/pubs/dissertation/rest_arch_style.htm)中引入的。 Rest 是一种架构风格，用于构建可伸缩的 web 应用。 
 
 <!-- We are not going to dig into Fielding's definition of REST or spend time pondering about what is and isn't RESTful. Instead, we take a more [narrow view](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services) by only concerning ourselves with how RESTful API's are typically understood in web applications. The original definition of REST is in fact not even limited to web applications. -->
-我们不会深入探究 Fielding 对 REST 的定义，也不会花时间思考什么是 RESTful，什么不是 RESTful。 相反，我们只关注web应用对 RESTful API 的典型理解，从而采取了一种更为狭隘的视角 [narrow view](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services)。 Rest 的最初定义实际上并不局限于 web 应用。
+我们不会深入探究 Fielding 对 REST 的定义，也不会花时间思考什么是 RESTful，什么不是 RESTful。 相反，我们只关注web应用对 RESTful API 的典型理解，从而采取了一种更为狭隘的视角 [narrow view](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services)。 Rest 的最初定义实际上并不局限于 web 应用。
 
 <!-- We mentioned in the [previous part](/zh/part2/在服务端将数据_alert出来#rest) that singular things, like notes in the case of our application, are called <i>resources</i> in RESTful thinking. Every resource has an associated URL which is the resource's unique address. -->
 我们在 [上一章节](/zh/part2/在服务端将数据_alert出来#rest) 中提到过，在我们的应用中，像便笺这样的单数实体，在 RESTful thinking 中称为<i>resource</i>。 每个resource都有一个相关联的 URL，这个 URL 是资源的唯一地址。
@@ -540,8 +540,8 @@ Representational State Transfer，又名REST， 是在2000年 Roy Fielding 的[�
 <!-- Let's assume that the root URL of our service is <i>www.example.com/api</i>. -->
 假设我们的服务的根 URL 是<i> www.example.com/api </i>。
 
-<!-- If we define the resource type of notes to be <i>note</i>, then the address of a note resource with the identifier 10, has the unique address <i>www.example.com/api/notes/10</i>. -->
-如果我们将便笺的资源类型定义为<i>note</i>，那么标识为10的便笺资源的地址就是唯一的地址<i>www.example.com/api/notes/10</i>。
+<!-- If we define the resource type of notes to be <i>notes</i>, then the address of a note resource with the identifier 10, has the unique address <i>www.example.com/api/notes/10</i>. -->
+如果我们将便笺的资源类型定义为<i>notes</i>，那么标识为10的便笺资源的地址就是唯一的地址<i>www.example.com/api/notes/10</i>。
 
 <!-- The URL for the entire collection of all note resources is <i>www.example.com/api/notes</i>. -->
 所有便笺资源的整个集合的 URL 是<i> www.example.com/api/notes </i>。
@@ -799,16 +799,18 @@ app.delete('/api/notes/:id', (request, response) => {
 const express = require('express')
 const app = express()
 
-app.use(express.json())
+app.use(express.json()) // highlight-line
 
 //...
 
+// highlight-start
 app.post('/api/notes', (request, response) => {
   const note = request.body
   console.log(note)
 
   response.json(note)
 })
+// highlight-end
 ```
 
 <!-- The event handler function can access the data from the <i>body</i> property of the _request_ object. -->
@@ -882,6 +884,26 @@ app.post('/api/notes', (request, response) => {
 
 <!-- One benefit that the REST client has over Postman is that the requests are handily available at the root of the project repository, and they can be distributed to everyone in the development team. Postman also allows users to save requests, but the situation can get quite chaotic especially when you're working on multiple unrelated projects. -->
 Rest 客户端相对于 Postman 的一个好处是，请求可以在项目仓库的根部轻松获得，并且可以分发给开发团队中的每个人。 Postman也允许用户保存请求，但是当你在处理多个不相关的项目时，情况会变得非常混乱。 
+
+<!-- One benefit that the REST client has over Postman is that the requests are handily available at the root of the project repository, and they can be distributed to everyone in the development team. You can also add multiple requests in the same file using `###` separators: -->
+Rest 客户端相对于 Postman 的一个好处是，请求可以在项目仓库的根目录轻松获得，并且可以分发给开发团队中的每个人。也可以添加利用 `###` 分割符向相同文件中添加多个请求：
+
+```
+GET http://localhost:3001/api/notes/
+
+###
+POST http://localhost:3001/api/notes/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+```
+
+<!-- Postman also allows users to save requests, but the situation can get quite chaotic especially when you're working on multiple unrelated projects. -->
+Postman 也允许用户保存请求，但环境会变得越来越混乱，尤其是当你在一些好不相关的项目间切换的时候。
+
 
 > **Important sidenote**
 重要旁注
@@ -985,11 +1007,12 @@ important: body.important || false,
 > <!--To be exact, when the <i>important</i> property is <i>false</i>, then the <em>body.important || false</em> expression will in fact return the <i>false</i> from the right-hand side...-->
 确切地说，当<i>important</i> 属性为<i>false</i> 时，那么<em>body.important || false</em> 表达式实际上将从右侧返回<i>false</i>..。
 
-<!-- You can find the code for our current application in its entirety in the <i>part3-1</i> branch of [this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-1). -->
-您可以在[this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-1)的<i>part3-1</i> 分支中找到我们当前应用的全部代码。
+<!-- You can find the code for our current application in its entirety in the <i>part3-1</i> branch of [this github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-1). -->
+您可以在[这个 github 仓库](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-1)的<i>part3-1</i> 分支中找到我们当前应用的全部代码。
 
-<!-- Notice that the master branch of the repository contains the code from a later version of the application. The code for the current state of the application is specifically in branch [part3-1](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-1). -->
-注意，仓库的主分支包含应用的后一个版本的代码。 应用当前状态的代码单独在 branch [part3-1](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-1)中。
+
+<!-- Notice that the master branch of the repository contains the code from a later version of the application. The code for the current state of the application is specifically in branch [part3-1](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-1). -->
+注意，仓库的主分支包含应用的后一个版本的代码。 应用当前状态的代码单独在 branch [part3-1](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-1)中。
 
 ![](../../images/3/21.png)
 
@@ -1210,7 +1233,7 @@ app.use(requestLogger)
 中间件函数按照与express服务器对象的使用方法一起使用的顺序调用。 请注意，json-parser 是在 requestLogger 中间件之前使用的，否则在执行日志记录器时，不会初始化我们的 <i>request.body</i> ！
 
 <!-- Middleware functions have to be taken into use before routes if we want them to be executed before the route event handlers are called. There are also situations where we want to define middleware functions after routes. In practice, this means that we are defining middleware functions that are only called if no route handles the HTTP request. -->
-如果我们希望在调用路由事件处理程序之前执行路由，则必须在路由之前使用中间件函数。 还有一些情况，我们希望在路由之后定义中间件函数。 实际上，这意味着我们定义的中间件函数只有在没有路由处理 HTTP 请求的情况下才被调用。
+如果我们希望在调用路由事件处理程序之前执行中间件函数，则必须在路由之前使用中间件函数。 还有一些情况，我们希望在路由之后定义中间件函数。 实际上，这意味着我们定义的中间件函数只有在没有路由处理 HTTP 请求的情况下才被调用。
 
 
 <!-- Let's add the following middleware after our routes, that is used for catching requests made to non-existent routes. For these requests, the middleware will return an error message in the JSON format. -->
@@ -1224,8 +1247,8 @@ const unknownEndpoint = (request, response) => {
 app.use(unknownEndpoint)
 ```
 
-<!-- You can find the code for our current application in its entirety in the <i>part3-2</i> branch of [this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2). -->
-您可以在[this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2).的<i>part3-2</i> 分支中找到我们当前应用的全部代码。
+<!-- You can find the code for our current application in its entirety in the <i>part3-2</i> branch of [this github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-2). -->
+您可以在[this github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-2).的<i>part3-2</i> 分支中找到我们当前应用的全部代码。
 
 </div>
 

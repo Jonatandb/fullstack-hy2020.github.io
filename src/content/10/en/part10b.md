@@ -7,7 +7,7 @@ lang: en
 
 <div class="content">
 
-Now that we have set up our development environment we can get into to React Native basics and get started with the development of our application. In this section, we will learn how to build user interfaces with React Native's core components, how to add style properties to these core components, how to transition between views, and how to manage form's state efficiently.
+Now that we have set up our development environment we can get into React Native basics and get started with the development of our application. In this section, we will learn how to build user interfaces with React Native's core components, how to add style properties to these core components, how to transition between views, and how to manage form's state efficiently.
 
 ### Core components
 
@@ -47,23 +47,23 @@ So we import the [Text](https://reactnative.dev/docs/text) component from React 
 - [Text](https://reactnative.dev/docs/text) component is <i>the only</i> React Native component that can have textual children. It is similar to for example the <em>&lt;strong&gt;</em> and the <em>&lt;h1&gt;</em> elements.
 - [View](https://reactnative.dev/docs/view) component is the basic user interface building block similar to the <em>&lt;div&gt;</em> element.
 - [TextInput](https://reactnative.dev/docs/textinput) component is a text field component similar to the <em>&lt;input&gt;</em> element.
-- [TouchableWithoutFeedback](https://reactnative.dev/docs/touchablewithoutfeedback) component (and other <i>Touchable\*</i> components) component is for capturing different press events. It is similar to for example the <em>&lt;button&gt;</em> element.
+- [Pressable](https://reactnative.dev/docs/pressable) component is for capturing different press events. It is similar to for example the <em>&lt;button&gt;</em> element.
 
 There are a few notable differences between core components and DOM elements. The first difference is that the <em>Text</em> component is <i>the only</i> React Native component that can have textual children. This means that you can't, for example, replace the <em>Text</em> component with the <em>View</em> component in the previous example.
 
-The second notable difference is related to the event handlers. While working with the DOM elements we are used to adding event handlers such as <em>onClick</em> to basically any element such as <em>&lt;div&gt;</em> and <em>&lt;button&gt;</em>. In React Native we have to carefully read the [API documentation](https://reactnative.dev/docs/components-and-apis) to know what event handlers (as well as other props) a component accepts. For example, the family of ["Touchable" components](https://reactnative.dev/docs/handling-touches#touchables) provides the capability to capture tapping gestures and can display feedback when a gesture is recognized. One of these components is the [TouchableWithoutFeedback](https://reactnative.dev/docs/touchablewithoutfeedback) component, which accepts the <em>onPress</em> prop:
+The second notable difference is related to the event handlers. While working with the DOM elements we are used to adding event handlers such as <em>onClick</em> to basically any element such as <em>&lt;div&gt;</em> and <em>&lt;button&gt;</em>. In React Native we have to carefully read the [API documentation](https://reactnative.dev/docs/components-and-apis) to know what event handlers (as well as other props) a component accepts. For example, the [Pressable](https://reactnative.dev/docs/pressable) component provides props for listening to different kind of press events. We can for example use the component's [onPress](https://reactnative.dev/docs/pressable) prop for listening to press events:
 
 ```javascript
 import React from 'react';
-import { Text, TouchableWithoutFeedback, Alert } from 'react-native';
+import { Text, Pressable, Alert } from 'react-native';
 
-const TouchableText = props => {
+const PressableText = props => {
   return (
-    <TouchableWithoutFeedback
+    <Pressable
       onPress={() => Alert.alert('You pressed the text!')}
     >
       <Text>You can press me</Text>
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 };
 ```
@@ -231,7 +231,7 @@ const BigBlueText = () => {
 
 On top of the property names, you might have noticed another difference in the example. In CSS numerical property values commonly have a unit such as <i>px</i>, <i>%</i>, <i>em</i> or <i>rem</i>. In React Native all dimension related property values such as <em>width</em>, <em>height</em>, <em>padding</em>, and <em>margin</em> as well as font sizes are <i>unitless</i>. These unitless numeric values represent <i>density-independent pixels</i>. In case you are wondering what are the available style properties for certain core component, check the [React Native Styling Cheat Sheet](https://github.com/vhpoet/react-native-styling-cheat-sheet).
 
-In general, defining styles directly in the <em>style</em> prop is not considered such a great idea, because it makes components bloated and unclear. Instead, we should define styles outside the component's render function using the [StyleSheet.create](https://reactnative.dev/docs/0.53/stylesheet#create) method. The <em>StyleSheet.create</em> method accepts a single argument which is an object consisting of named style objects and it creates a StyleSheet style reference from the given object. Here is an example of how to refactor the previous example using the <em>StyleSheet.create</em> method:
+In general, defining styles directly in the <em>style</em> prop is not considered such a great idea, because it makes components bloated and unclear. Instead, we should define styles outside the component's render function using the [StyleSheet.create](https://reactnative.dev/docs/stylesheet#create) method. The <em>StyleSheet.create</em> method accepts a single argument which is an object consisting of named style objects and it creates a StyleSheet style reference from the given object. Here is an example of how to refactor the previous example using the <em>StyleSheet.create</em> method:
 
 ```javascript
 import React from 'react';
@@ -263,7 +263,7 @@ const BigBlueText = () => {
 
 We create two named style objects, <em>styles.container</em> and <em>styles.text</em>. Inside the component, we can access specific style object the same way we would access any key in a plain object.
 
-In addition to an object, the <em>style</em> prop also accepts an array of objects. In the case of an array, the objects are merged from left to right so that latter style properties takes presence. This works recursively, so we can have for example an array containing an array of styles and so forth. If an array contains values that evaluate to false, such as <em>null</em> or <em>undefined</em>, these values are ignored. This makes it easy to define <i>conditional styles</i> for example, based on the value of a prop. Here is an example of conditional styles:
+In addition to an object, the <em>style</em> prop also accepts an array of objects. In the case of an array, the objects are merged from left to right so that latter style properties take precedence. This works recursively, so we can have for example an array containing an array of styles and so forth. If an array contains values that evaluate to false, such as <em>null</em> or <em>undefined</em>, these values are ignored. This makes it easy to define <i>conditional styles</i> for example, based on the value of a prop. Here is an example of conditional styles:
 
 ```javascript
 import React from 'react';
@@ -311,11 +311,11 @@ In the example we use the <em>&&</em> operator with statement <em>condition && e
 
 ### Consistent user interface with theming
 
-Let's stick with the concept of styling but with a bit wider perspective. Most of us have used a multitude of different applications and might agree that one trait that makes a good user interface is <i>consistency</i>. This means that the appearance of user interface components such as their font size, font family and color follow a consistent pattern. To achieve this we have somehow <i>parametrize</i> the values of different style properties. This method is commonly known as <i>theming</i>.
+Let's stick with the concept of styling but with a bit wider perspective. Most of us have used a multitude of different applications and might agree that one trait that makes a good user interface is <i>consistency</i>. This means that the appearance of user interface components such as their font size, font family and color follows a consistent pattern. To achieve this we have to somehow <i>parametrize</i> the values of different style properties. This method is commonly known as <i>theming</i>.
 
-Users of popular user interface libraries such as [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/theming/) and [Material UI](https://material-ui.com/customization/theming/) might already be quite familiar with theming. Even though the theming implementations differ the main idea is always to use variables such as <em>colors.primary</em> instead of ["magic numbers"](<https://en.wikipedia.org/wiki/Magic_number_(programming)>) such as <em>#0366d6</em> when defining styles. This leads to increased consistency and flexibility.
+Users of popular user interface libraries such as [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/theming/) and [Material UI](https://material-ui.com/customization/theming/) might already be quite familiar with theming. Even though the theming implementations differ, the main idea is always to use variables such as <em>colors.primary</em> instead of ["magic numbers"](<https://en.wikipedia.org/wiki/Magic_number_(programming)>) such as <em>#0366d6</em> when defining styles. This leads to increased consistency and flexibility.
 
-Let's see how theming could work in practice in our application. We will be using a lot of text with different variations, such as different font sizes and colors. Because React Native does not support global styles we should create our own <em>Text</em> component to keep the textual content consistent. Let's get started by adding the following theme configuration object in a <i>theme.js</i> file in the <i>src</i> directory:
+Let's see how theming could work in practice in our application. We will be using a lot of text with different variations, such as different font sizes and colors. Because React Native does not support global styles, we should create our own <em>Text</em> component to keep the textual content consistent. Let's get started by adding the following theme configuration object in a <i>theme.js</i> file in the <i>src</i> directory:
 
 ```javascript
 const theme = {
@@ -412,7 +412,7 @@ Feel free to extend or modify this component if you feel like it. It might also 
 
 ### Using flexbox for layout
 
-The last concept we will cover related to styling is implementing layouts with [flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). Those who are more familiar with CSS know that flexbox is not only related to React Native instead it has many use cases in web development as well. In fact, those who know how flexbox works in web development won't probably learn that much from this section. Nevertheless, let's learn or revise the basics of flexbox.
+The last concept we will cover related to styling is implementing layouts with [flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). Those who are more familiar with CSS know that flexbox is not related only to React Native, it has many use cases in web development as well. In fact, those who know how flexbox works in web development won't probably learn that much from this section. Nevertheless, let's learn or revise the basics of flexbox.
 
 Flexbox is a layout entity consisting of two separate components: a <i>flex container</i> and inside it a set of <i>flex items</i>. Flex container has a set of properties that control the flow of its items. To make a component a flex container it must have the style property <em>display</em> set as <em>flex</em> which is the default value for the <em>display</em> property. Here is an example of a flex container:
 
@@ -472,11 +472,13 @@ const FlexboxExample = () => {
 };
 ```
 
-One of the most commonly used properties of flex item is the [flexGrow](https://css-tricks.com/almanac/properties/f/flex-grow/) property. It accepts a unitless value which defines the ability for a flex item to grow if necessary. If every flex items have a <em>flexGrow</em> of <em>1</em>, they will share all the available space evenly. If a flex item have a <em>flexGrow</em> of <em>0</em> it will only use the space its content requires and leave rest of the space for other flex items.
+One of the most commonly used properties of flex item is the [flexGrow](https://css-tricks.com/almanac/properties/f/flex-grow/) property. It accepts a unitless value which defines the ability for a flex item to grow if necessary. If all flex items have a <em>flexGrow</em> of <em>1</em>, they will share all the available space evenly. If a flex item has a <em>flexGrow</em> of <em>0</em>, it will only use the space its content requires and leave the rest of the space for other flex items.
 
 Here is a more interactive and concrete example of how to use flexbox to implement a simple card component with header, body and footer: [Flexbox example](https://snack.expo.io/@kalleilv/3d045d).
 
 Next, read the article [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) which has comprehensive visual examples of flexbox. It is also a good idea to play around with the flexbox properties in the [Flexbox Playground](https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/) to see how different flexbox properties affect the layout. Remember that in React Native the property names are the same as the ones in CSS except for the <i>camelCase</i> naming. However, the <i>property values</i> such as <em>flex-start</em> and <em>space-between</em> are exactly the same.
+
+**NB:** React Native and CSS has some differences regarding the flexbox. The most important difference is that in React Native the default value for the <em>flexDirection</em> property is <em>column</em>. It is also worth noting that the <em>flex</em> shorthand doesn't accept multiple values in React Native. More on the React Native's flexbox implementation can be read in the [documentation](https://reactnative.dev/docs/flexbox).
 
 </div>
 
@@ -486,7 +488,7 @@ Next, read the article [A Complete Guide to Flexbox](https://css-tricks.com/snip
 
 #### Exercise 10.4: the app bar
 
-We will soon need to navigate between different views in our application. That is why need an [app bar](https://material.io/components/app-bars-top/) to display tabs for switching between different views. Create a file <i>AppBar.jsx</i> in the <i>components</i> folder with the following content:
+We will soon need to navigate between different views in our application. That is why we need an [app bar](https://material.io/components/app-bars-top/) to display tabs for switching between different views. Create a file <i>AppBar.jsx</i> in the <i>components</i> folder with the following content:
 
 ```javascript
 import React from 'react';
@@ -508,7 +510,7 @@ const AppBar = () => {
 export default AppBar;
 ```
 
-Now that the <em>AppBar</em> component will prevent the status bar from overlapping the content, you can remove the <em>marginTop</em> style we added for the <em>Main</em> component earlier in the <i>Main.jsx</i> file. The <em>AppBar</em> component should currently contain a tab with text "Repositories". Make the tab touchable by using the [TouchableWithoutFeedback](https://reactnative.dev/docs/touchablewithoutfeedback) component but you don't have to handle the <em>onPress</em> event in any way. Add the <em>AppBar</em> component to the <em>Main</em> component so that it is the uppermost component in the screen. The <em>AppBar</em> component should look something like this:
+Now that the <em>AppBar</em> component will prevent the status bar from overlapping the content, you can remove the <em>marginTop</em> style we added for the <em>Main</em> component earlier in the <i>Main.jsx</i> file. The <em>AppBar</em> component should currently contain a tab with text "Repositories". Make the tab pressable by using the [Pressable](https://reactnative.dev/docs/pressable) component but you don't have to handle the <em>onPress</em> event in any way. Add the <em>AppBar</em> component to the <em>Main</em> component so that it is the uppermost component in the screen. The <em>AppBar</em> component should look something like this:
 
 ![Application preview](../../images/10/6.jpg)
 
@@ -516,7 +518,7 @@ The background color of the app bar in the image is <em>#24292e</em> but you can
 
 #### Exercise 10.5: polished reviewed repositories list
 
-The current version of the reviewed repositories list looks quite grim. Modify the <i>RepositoryListItem</i> component so that it also displays repository author's avatar image. You can implement this by using the [Image](https://reactnative.dev/docs/image) component. Counts, such as number of stars and forks, larger than or equal to 1000 should be displayed in thousands with precision of one decimal and with a "k" suffix. This means that for example fork count of 8439 should be displayed as "8.4k". Also polish the overall look of the component so that the reviewed repositories list looks something like this:
+The current version of the reviewed repositories list looks quite grim. Modify the <i>RepositoryListItem</i> component so that it also displays the repository author's avatar image. You can implement this by using the [Image](https://reactnative.dev/docs/image) component. Counts, such as number of stars and forks, larger than or equal to 1000 should be displayed in thousands with precision of one decimal and with a "k" suffix. This means that for example fork count of 8439 should be displayed as "8.4k". Also polish the overall look of the component so that the reviewed repositories list looks something like this:
 
 ![Application preview](../../images/10/7.jpg)
 
@@ -528,11 +530,11 @@ In the image, the <em>Main</em> component's background color is set to <em>#e1e4
 
 ### Routing
 
-When we start to expand our application we will need a way to transition between different views such as the repositories view and the sign in view. In [part 7](/en/part7/react_router) we got familiar with [React router](https://reacttraining.com/react-router/native/guides/quick-start) library and learned how use it to implement routing in a web application.
+When we start to expand our application we will need a way to transition between different views such as the repositories view and the sign in view. In [part 7](/en/part7/react_router) we got familiar with [React router](https://reacttraining.com/react-router/native/guides/quick-start) library and learned how to use it to implement routing in a web application.
 
-Routing in a React Native application is a bit different to routing in a web application. The main difference is that we can't reference pages with URLs which we type in to the browser's address bar and can't navigate back and forth through user's history using the browsers [history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). However, this is just the matter of the router interface we are using.
+Routing in a React Native application is a bit different to routing in a web application. The main difference is that we can't reference pages with URLs, which we type in to the browser's address bar, and can't navigate back and forth through user's history using the browsers [history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). However, this is just the matter of the router interface we are using.
 
-With React Native we can use the entire React router's core, including the hooks and components. The only difference to the browser environment is that we must replace the <em>BrowserRouter</em> with React Native compatible [NativeRouter](https://reacttraining.com/react-router/native/api/NativeRouter) provided by the [react-router-native](https://reacttraining.com/react-router/native/guides/quick-start) library. Let's get started by installing the <i>react-router-native</i> library:
+With React Native we can use the entire React router's core, including the hooks and components. The only difference to the browser environment is that we must replace the <em>BrowserRouter</em> with React Native compatible [NativeRouter](https://reacttraining.com/react-router/native/api/NativeRouter), provided by the [react-router-native](https://reacttraining.com/react-router/native/guides/quick-start) library. Let's get started by installing the <i>react-router-native</i> library:
 
 ```shell
 npm install react-router-native
@@ -566,8 +568,6 @@ module.exports = async function(env, argv) {
 Finally, restart Expo's development tools so that our new Webpack configuration will be applied.
 
 Now that the Expo's web browser preview is fixed, open the <i>App.js</i> file and add the <em>NativeRouter</em> component to the <em>App</em> component:
-
-<!-- TODO: highlight -->
 
 ```javascript
 import React from 'react';
@@ -646,7 +646,7 @@ const SignIn = () => {
 export default SignIn;
 ```
 
-Set up a route for this <em>SignIn</em> component in the <em>Main</em> component. Also add a tab with text "Sign in" in to the app bar next to the "Repositories" tab. User should be able to navigate between the two views by pressing the tabs (hint: use the [Link](https://reacttraining.com/react-router/native/api/Link) component and its [component](https://reacttraining.com/react-router/native/api/Link/component-func) prop).
+Set up a route for this <em>SignIn</em> component in the <em>Main</em> component. Also add a tab with text "Sign in" in to the app bar next to the "Repositories" tab. Users should be able to navigate between the two views by pressing the tabs (hint: you can use the React router's [Link](https://reacttraining.com/react-router/native/api/Link) component).
 
 #### Exercise 10.7: scrollable app bar
 
@@ -674,7 +674,7 @@ Setting the [horizontal](https://reactnative.dev/docs/scrollview#horizontal) pro
 
 Now that we have a placeholder for the sign in view the next step would be to implement the sign in form. Before we get to that let's talk about forms in a more wider perspective.
 
-Implementation of forms relies heavily on the state management. Using the React's <em>useState</em> hook for the state management might get the job done for smaller forms. However, it will quickly make the state management quite tedious with more complex forms. Luckily there are many good libraries in the React ecosystem that eases the state management of forms. One of these libraries is [Formik](https://jaredpalmer.com/formik/).
+Implementation of forms relies heavily on the state management. Using the React's <em>useState</em> hook for the state management might get the job done for smaller forms. However, it will quickly make the state management quite tedious with more complex forms. Luckily there are many good libraries in the React ecosystem that ease the state management of forms. One of these libraries is [Formik](https://jaredpalmer.com/formik/).
 
 The main concepts of Formik are the <i>context</i> and a <i>field</i>. The Formik's context is provided by the [Formik](https://jaredpalmer.com/formik/docs/api/formik) component that contains the form's state. The state consists of information of form's fields. This information includes for example the value and validation errors of each field. State's fields can be referenced by their name using the [useField](https://jaredpalmer.com/formik/docs/api/useField) hook or the [Field](https://jaredpalmer.com/formik/docs/api/field) component.
 
@@ -682,7 +682,7 @@ Let's see how this actually works by creating a form for calculating the [body m
 
 ```javascript
 import React from 'react';
-import { Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import { Text, TextInput, Pressable, View } from 'react-native';
 import { Formik, useField } from 'formik';
 
 const initialValues = {
@@ -710,9 +710,9 @@ const BodyMassIndexForm = ({ onSubmit }) => {
         value={heightField.value}
         onChangeText={text => heightHelpers.setValue(text)}
       />
-      <TouchableWithoutFeedback onPress={onSubmit}>
+      <Pressable onPress={onSubmit}>
         <Text>Calculate</Text>
-      </TouchableWithoutFeedback>
+      </Pressable>
     </View>
   );
 };
@@ -737,11 +737,11 @@ const BodyMassIndexCalculator = () => {
 
 This example is not part of our application, so you don't need to actually add this code to the application. You can however try it out for example in [Expo Snack](https://snack.expo.io/). Expo Snack is an online editor for React Native, similar to [JSFiddle](https://jsfiddle.net/) and [CodePen](https://codepen.io/). It is a useful platform for quickly trying out code. You can share Expo Snacks with others using a link or embedding them as a <i>Snack Player</i> in a web site. You might have bumped into Snack Players for example in this material and React Native documentation.
 
-In the example, we define the <em>Formik</em> context in the <em>BodyMassIndexCalculator</em> component and provided it with initial values and a submit callback. Initial values are provided through the [initialValues](https://jaredpalmer.com/formik/docs/api/formik#initialvalues-values) prop as an object with field names as keys and the corresponding initial values as values. The submit callback is provided through the [onSubmit](https://jaredpalmer.com/formik/docs/api/formik#onsubmit-values-values-formikbag-formikbag--void--promiseany) prop and it is called when the <em>handleSubmit</em> function is called with the condition that there isn't any validation errors. Children of the <em>Formik</em> component is a function which is called with [props](https://jaredpalmer.com/formik/docs/api/formik#formik-render-methods-and-props) including state related information and actions such as the <em>handleSubmit</em> function.
+In the example, we define the <em>Formik</em> context in the <em>BodyMassIndexCalculator</em> component and provide it with initial values and a submit callback. Initial values are provided through the [initialValues](https://jaredpalmer.com/formik/docs/api/formik#initialvalues-values) prop as an object with field names as keys and the corresponding initial values as values. The submit callback is provided through the [onSubmit](https://jaredpalmer.com/formik/docs/api/formik#onsubmit-values-values-formikbag-formikbag--void--promiseany) prop and it is called when the <em>handleSubmit</em> function is called, with the condition that there isn't any validation errors. Children of the <em>Formik</em> component is a function which is called with [props](https://jaredpalmer.com/formik/docs/api/formik#formik-render-methods-and-props) including state related information and actions such as the <em>handleSubmit</em> function.
 
 The <em>BodyMassIndexForm</em> component contains the state bindings between the context and text inputs. We use the [useField](https://jaredpalmer.com/formik/docs/api/useField) hook to get the value of a field and to change it. _useField_ hooks has one argument which is the name of the field and it returns an array with three values, <em>[field, meta, helpers]</em>. The [field object](https://jaredpalmer.com/formik/docs/api/useField#fieldinputpropsvalue) contains the value of the field, the [meta object](https://jaredpalmer.com/formik/docs/api/useField#fieldmetapropsvalue) contains field meta information such as a possible error message and the [helpers object](https://jaredpalmer.com/formik/docs/api/useField#fieldhelperprops) contains different actions for changing the state of field such as the <em>setValue</em> function. Note that the component that uses the <em>useField</em> hook has to be _within the Formik's context_. This means that the component has to be a descendant of the <em>Formik</em> component.
 
-Here is an interactive version of our previous example: [Formik example](https://snack.expo.io/@kalleilv/9e9e0d).
+Here is an interactive version of our previous example: [Formik example](https://snack.expo.io/@kalleilv/formik-example).
 
 In the previous example using the <em>useField</em> hook with the <em>TextInput</em> component causes repetitive code. Let's extract this repetitive code into a <em>FormikTextInput</em> component and create a custom <em>TextInput</em> component to make text inputs a bit more visually pleasing. First, let's install Formik:
 
@@ -811,9 +811,9 @@ const BodyMassIndexForm = ({ onSubmit }) => {
     <View>
       <FormikTextInput name="mass" placeholder="Weight (kg)" /> // highlight-line
       <FormikTextInput name="height" placeholder="Height (m)" /> //highlight-line
-      <TouchableWithoutFeedback onPress={onSubmit}>
+      <Pressable onPress={onSubmit}>
         <Text>Calculate</Text>
-      </TouchableWithoutFeedback>
+      </Pressable>
     </View>
   );
 };
@@ -850,7 +850,7 @@ The sign in form should look something like this:
 
 ### Form validation
 
-Formik offers two approaches to the form validation: a validation function or a validation schema. Validation function is a function provided for the <em>Formik</em> component as the value of the [validate](https://jaredpalmer.com/formik/docs/guides/validation#validate) prop. It receives the form's values as an argument and returns an object containing possible field specific error messages.
+Formik offers two approaches to the form validation: a validation function or a validation schema. A validation function is a function provided for the <em>Formik</em> component as the value of the [validate](https://jaredpalmer.com/formik/docs/guides/validation#validate) prop. It receives the form's values as an argument and returns an object containing possible field specific error messages.
 
 The second approach is the validation schema which is provided for the <em>Formik</em> component as the value of the [validationSchema](https://jaredpalmer.com/formik/docs/guides/validation#validationschema) prop. This validation schema can be created with a validation library called [Yup](https://github.com/jquense/yup). Let's get started by installing Yup:
 
@@ -991,7 +991,7 @@ const MyComponent = Platform.select({
 <MyComponent />;
 ```
 
-However, a more sophisticated method for implementing and importing platform specific components (or any other piece of code) is to use the <i>.io.jsx</i> and <i>.android.jsx</i> file extensions. Note that the <i>.jsx</i> extension can as well be any extensions recognized by the bundler, such as <i>.js</i>. We can for example have files <i>Button.ios.jsx</i> and <i>Button.android.jsx</i> which we can import like this:
+However, a more sophisticated method for implementing and importing platform specific components (or any other piece of code) is to use the <i>.ios.jsx</i> and <i>.android.jsx</i> file extensions. Note that the <i>.jsx</i> extension can as well be any extensions recognized by the bundler, such as <i>.js</i>. We can for example have files <i>Button.ios.jsx</i> and <i>Button.android.jsx</i> which we can import like this:
 
 ```javascript
 import React from 'react';
