@@ -13,11 +13,11 @@ Después de la breve introducción a los principios fundamentales de TypeScript,
 
 Instale la compatibilidad con TypeScript en el editor de su elección. Para [Visual Studio Code](https://code.visualstudio.com/), necesita la extensión [typescript hero](https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero).
 
-Como se mencionó anteriormente, el código TypeScript no es ejecutable por sí mismo, pero primero debe compilarse en JavaScript ejecutable. Cuando TypeScript se compila en JavaScript, el código se convierte en sujeto para el borrado de tipos. Esto significa que las anotaciones de tipos, interfaces, alias de tipos y otras construcciones del sistema de tipos se eliminan del código y el resultado es JavaScript puro y listo para ejecutar.
+Como se mencionó anteriormente, el código TypeScript no es ejecutable por sí mismo, primero debe compilarse en JavaScript ejecutable. Cuando TypeScript se compila en JavaScript, el código se convierte en sujeto para el borrado de tipos. Esto significa que las anotaciones de tipos, interfaces, alias de tipos y otras construcciones del sistema de tipos se eliminan del código y el resultado es JavaScript puro y listo para ejecutar.
 
 En un entorno de producción, la necesidad de compilación a menudo significa que debe configurar un "paso de compilación". Durante el paso de compilación, todo el código TypeScript se compila en JavaScript en una carpeta separada, y el entorno de producción luego ejecuta el código desde esa carpeta. En un entorno de desarrollo, a menudo es más útil hacer uso de la compilación en tiempo real y la recarga automática para poder ver los cambios resultantes más rápido.
 
-Comencemos a escribir nuestra primera aplicación TypeScript. Para simplificar las cosas, comencemos usando el paquete [ts-node](https://github.com/TypeStrong/ts-node) de npm . Compila y ejecuta el archivo TypeScript especificado inmediatamente, por lo que no es necesario un paso de compilación por separado.
+Comencemos a escribir nuestra primera aplicación TypeScript. Para simplificar las cosas, comencemos usando el paquete [ts-node](https://github.com/TypeStrong/ts-node) de npm. Compila y ejecuta el archivo TypeScript especificado inmediatamente, por lo que no es necesario un paso de compilación por separado.
 
 Puede instalar tanto <i>ts-node</i> como el paquete oficial <i>typescript</i> a nivel global ejecutando
 
@@ -115,7 +115,6 @@ Ampliemos nuestro multiplicador a una calculadora un poco más versátil que tam
 En JavaScript, el código requeriría una validación adicional para asegurarse de que el último argumento sea un string. TypeScript ofrece una forma de definir tipos específicos de entradas, que describen exactamente qué tipo de entrada es aceptable. Además de eso, TypeScript también puede mostrar la información de los valores aceptados ya en el nivel de editor.
 
 Podemos crear un <i>tipo</i> usando la palabra clave nativa de TypeScript <i>type</i>. Describamos nuestro tipo <i>Operation</i>:
-Creating your first own types
 
 ```js
 type Operation = 'multiply' | 'add' | 'divide';
