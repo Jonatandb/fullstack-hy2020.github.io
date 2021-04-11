@@ -497,7 +497,7 @@ Especifiquemos las siguientes configuraciones en nuestro archivo <i>tsconfig.jso
 }
 ```
 
-No se preocupe demasiado por <i>compilerOptions</i>, estarán bajo una inspección más cercana en la parte 2.
+No se preocupe demasiado por <i>compilerOptions</i>, estarán bajo una inspección más cercana más adelante.
 
 Puede encontrar explicaciones para cada una de las configuraciones en la documentación de TypeScript, o en la [página tsconfig](https://www.staging-typescript.org/tsconfig) realmente útil , o en la [definición del esquema](http://json.schemastore.org/tsconfig) tsconfig , que desafortunadamente tiene un formato un poco peor que las dos primeras opciones.
 
