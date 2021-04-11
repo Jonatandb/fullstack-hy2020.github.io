@@ -543,7 +543,7 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 ```
-Todo lo demás parece estar funcionando bien, pero como era de esperar, es necesario escribir los parámetros <i>req</i> y <i>res</i> de app.get necesitan tipado.
+Todo lo demás parece estar funcionando bien, pero como era de esperar, los parámetros <i>req</i> y <i>res</i> de app.get necesitan tipado.
  Si observa con atención, VSCode también se queja de algo acerca de la importación express. Puede ver una pequeña línea amarilla de puntos debajo de <i>require</i>. Pasemos el cursor sobre el problema:
 
 ![](../../images/9/6.png)
@@ -697,7 +697,7 @@ Si los parámetros de consulta de la solicitud son del tipo incorrecto o faltan,
 }
 ```
 
-No copie el código de la calculadora en el archivo <i>index.ts</i>, conviértalo en un [módulo detypescript](https://www.typescriptlang.org/docs/handbook/modules.html) que se puede importar en <i>index.ts</i>.
+No copie el código de la calculadora en el archivo <i>index.ts</i>, conviértalo en un [módulo de typescript](https://www.typescriptlang.org/docs/handbook/modules.html) que se puede importar en <i>index.ts</i>.
 
 </div>
 
