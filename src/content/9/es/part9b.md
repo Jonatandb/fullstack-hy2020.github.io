@@ -734,10 +734,10 @@ Pero si pasa el cursor sobre los valores del request, surge un problema:
 
 Todas las variables tienen el tipo <i>any</i>. No es tan sorprendente, ya que nadie les ha dado un tipo todavía. Hay un par de maneras de solucionar este problema, pero la primera que tenemos que considerar por qué esto es aceptado y de dónde el tipo <i>any</i> viene?
 
-En TypeScript, cada variable sin tipo cuyo tipo no se puede inferir, se convierte implícitamente en tipo [any](http://www.typescriptlang.org/docs/handbook/basic-types.html#any). Cualquiera es una especie de "comodín" que literalmente significa <i>cualquier tipo</i>. 
-Las cosas se convierten implícitamente de cualquier tipo con bastante frecuencia cuando uno se olvida de darle tipo a las funciones.
+En TypeScript, cada variable sin tipo cuyo tipo no se puede inferir, se convierte implícitamente en tipo [any](http://www.typescriptlang.org/docs/handbook/basic-types.html#any). Any es una especie de "comodín" que literalmente significa <i>cualquier tipo</i>. 
+Las cosas se convierten implícitamente de tipo any con bastante frecuencia cuando uno se olvida de darle tipo a las funciones.
 
-También podemos explicitar el tipo <i>any</i>. La única diferencia entre cualquier tipo implícito y explícito es cómo se ve el código, al compilador no le importa la diferencia.
+También podemos explicitar el tipo <i>any</i>. La única diferencia entre <i>any</i> implícito y explícito es cómo se ve el código, al compilador no le importa la diferencia.
 
 Sin embargo, los programadores ven el código de manera diferente cuando se aplica explícitamente <i>any</i> que cuando se infiere implícitamente. 
 <i>any</i> de manera implicita generalmente se considera problemático, ya que a menudo se debe a que el codificador se olvida de asignar tipos (o es demasiado perezoso para hacerlo), y también significa que no se aprovecha todo el poder de TypeScript.
