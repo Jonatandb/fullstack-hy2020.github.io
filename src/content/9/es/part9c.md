@@ -251,7 +251,7 @@ Inicialice el proyecto que será utilizado por el frontend. Configure eslint y t
 
 El proyecto debería poder ejecutarse con scripts npm tanto en modo de desarrollo como código compilado en modo de producción.
 
-#### 9.8: Patientor backend, paso 
+#### 9.8: Patientor backend, paso 2
 
 Haz un fork y clone el proyecto [patientor](https://github.com/fullstack-hy2020/patientor). Inicie el proyecto con la ayuda del archivo README. Debería poder usar el frontend sin un backend que funcione.
 
