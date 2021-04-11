@@ -647,7 +647,7 @@ agregemos un script a <i>package.json</i>
 
 #### 9.4 Express
 
-Agregue express a sus dependencias y cree endpoint HTTP GET de saludo que responda 'Hello Full Stack!'
+Agregue express a sus dependencias y cree un endpoint HTTP GET <i>hola</i> que responda 'Hola Full Stack!'
 
 La aplicación web debe iniciarse con el comando <i>npm start</i> en modo de producción y <i>npm run dev</i> en modo de desarrollo, que debe usar <i>ts-node-dev</i> para ejecutar la aplicación.
 
