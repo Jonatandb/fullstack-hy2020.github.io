@@ -1240,7 +1240,20 @@ Si ahora intentamos crear una nueva entrada en el diario con campos no válidos 
 ### Ejercicios 9.12.-9.13.
 
 #### 9.12: Patientor backend, paso 5
-Cree un endpoint POST <i>/api/patients</i> para agregar pacientes. Asegúrese de que puede agregar pacientes también desde el frontend.
+Cree un endpoint POST <i>/api/patients</i> para agregar pacientes. Asegúrese de que puede agregar pacientes también desde el frontend. Puede crear ids únicos de tipo <i>string</i> usando la librería [uuid](https://github.com/uuidjs/uuid):
+
+```js
+import {v1 as uuid} from 'uuid'
+const id = uuid()
+```
+
+Agregado de definiciones de tipo de uuid:
+
+```js
+npm i --save-dev @types/uuid
+```
+<i>Posiblemente sea necesario reiniciar el IDE para que los tipos de uuid instalados sean detectados correctamente.</i>
+
 
 #### 9.13: Patientor backend, paso 6
 
